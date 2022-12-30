@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-class FoodServiceImpl implements FoodService {
+public class FoodServiceImpl implements FoodService {
 
     @Autowired
     FoodRepository foodRepository;
