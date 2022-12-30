@@ -30,7 +30,14 @@ public class FoodServiceImpl implements FoodService {
 
     @Override
     public FoodDto updateFoodDetails(String foodId, FoodDto foodDetails) throws Exception {
-        foodRepository.update(FoodConverter.dtoToEntity(foodDetails));
+        //foodRepository.update(FoodConverter.dtoToEntity(foodDetails));
+        FoodEntity food = foodRepository.findByFoodId(foodId);
+        food.setFoodCategory(foodDetails.getFoodCategory());
+        food.setFoodId(foodDetails.getFoodId());
+        food.setFoodName(foodDetails.getFoodName());
+        food.setFoodPrice(foodDetails.getFoodPrice());
+        food.setId(foodDetails.getId());
+        foodRepository.save(food);
         return foodDetails;
     }
 

@@ -29,9 +29,17 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public OrderDto updateOrderDetails(String orderId, OrderDto order) throws Exception {
-        orderRepository.update(OrderConverter.dtoToEntity(order));
-        return order;
+    public OrderDto updateOrderDetails(String orderId, OrderDto dto) throws Exception {
+        //orderRepository.update(OrderConverter.dtoToEntity(order));
+        OrderEntity order = orderRepository.findByOrderId(orderId);
+        order.setOrderId(dto.getOrderId());
+        order.setId(dto.getId());
+        order.setCost(dto.getCost());
+        order.setItems(dto.getItems());
+        order.setUserId(dto.getUserId());
+        order.setStatus(dto.isStatus());
+        orderRepository.save(order);
+        return dto;
     }
 
     @Override

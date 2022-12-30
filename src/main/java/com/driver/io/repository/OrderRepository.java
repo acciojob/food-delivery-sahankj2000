@@ -7,6 +7,4 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface OrderRepository extends CrudRepository<OrderEntity, Long> {
 	OrderEntity findByOrderId(String orderId);
-
-	void update(OrderEntity dtoToEntity);
 }

@@ -8,6 +8,7 @@ import com.driver.model.request.OrderDetailsRequestModel;
 import com.driver.model.response.OperationStatusModel;
 import com.driver.model.response.OrderDetailsResponse;
 import com.driver.service.OrderService;
+import com.driver.service.impl.OrderServiceImpl;
 import com.driver.shared.dto.OrderDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -24,7 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class OrderController {
 
 	@Autowired
-	OrderService orderService;
+	OrderServiceImpl orderService;
 
 	@GetMapping(path="/{id}")
 	public OrderDetailsResponse getOrder(@PathVariable String id) throws Exception{
